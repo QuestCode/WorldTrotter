@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConversionViewController: UIViewController {
+class ConversionViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var celsiusLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
@@ -72,6 +72,16 @@ class ConversionViewController: UIViewController {
     private func convertToCelsius(degrees: String) -> String {
         let celsius = (Double(degrees)! - 32) * (5/9)
         return String(format: "%.2f",celsius)
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+       let countdots = (textField.text?.components(separatedBy: ".").count)!-1
+        
+        if countdots > 0 && string == "." {
+            return false
+        }
+        return true
     }
     
 }
