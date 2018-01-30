@@ -1,0 +1,30 @@
+//
+//  ConversionViewController.swift
+//  tempature
+//
+//  Created by Devontae Reid on 1/29/18.
+//  Copyright © 2018 Devontae Reid. All rights reserved.
+//
+
+import UIKit
+
+class ConversionViewController: UIViewController {
+
+    @IBOutlet weak var celsiusLabel: UILabel!
+    
+    @IBAction func fahrenheitFieldEditingChanged(_ sender: UITextField) {
+        
+        if let text = sender.text, !text.isEmpty {
+            let celsius = convertToCelsius(degrees: text)
+            self.celsiusLabel.text = celsius
+        } else {
+            celsiusLabel.text = "???"
+        }
+    }
+    
+    private func convertToCelsius(degrees: String) -> String {
+        let celsius = (Double(degrees)! - 32) * (5/9)
+        return String(format: "%.2f",celsius)
+    }
+    
+}

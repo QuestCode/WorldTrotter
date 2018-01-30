@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Conversion View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ConversionViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qEp-Tf-MGT">
+                                <rect key="frame" x="107" y="28" width="160" height="84"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="value" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cZZ-VA-wIy">
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="84"/>
+                                        <color key="textColor" red="0.88235294119999996" green="0.34509803919999998" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                        <connections>
+                                            <action selector="fahrenheitFieldEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="qQC-Ka-YcP"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Fahrenheit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uzx-g7-1xk">
+                                <rect key="frame" x="39.5" y="120" width="295.5" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" red="0.88235294119999996" green="0.34509803919999998" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkz-Jn-uDP" userLabel="Celsius Label">
+                                <rect key="frame" x="129.5" y="214" width="116.5" height="84"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <color key="textColor" red="0.88235294119999996" green="0.34509803919999998" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Celsius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhM-bF-Ea1">
+                                <rect key="frame" x="64.5" y="306" width="245.5" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" red="0.88235294119999996" green="0.34509803919999998" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is really" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mag-GN-PyA">
+                                <rect key="frame" x="130" y="171" width="114" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="qEp-Tf-MGT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1lV-qZ-lN0"/>
+                            <constraint firstItem="vhM-bF-Ea1" firstAttribute="top" secondItem="vkz-Jn-uDP" secondAttribute="bottom" constant="8" symbolic="YES" id="8XV-1e-oBk"/>
+                            <constraint firstItem="Uzx-g7-1xk" firstAttribute="centerX" secondItem="qEp-Tf-MGT" secondAttribute="centerX" id="94N-Cf-3tw"/>
+                            <constraint firstItem="vkz-Jn-uDP" firstAttribute="top" secondItem="mag-GN-PyA" secondAttribute="bottom" id="B9l-6h-l95"/>
+                            <constraint firstItem="mag-GN-PyA" firstAttribute="top" secondItem="Uzx-g7-1xk" secondAttribute="bottom" constant="8" id="CHI-mg-KTg"/>
+                            <constraint firstItem="Uzx-g7-1xk" firstAttribute="top" secondItem="qEp-Tf-MGT" secondAttribute="bottom" constant="8" id="I0A-hm-dYn"/>
+                            <constraint firstItem="qEp-Tf-MGT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="sJ5-yH-QcV"/>
+                            <constraint firstItem="mag-GN-PyA" firstAttribute="centerX" secondItem="vkz-Jn-uDP" secondAttribute="centerX" id="tKy-7Q-S6B"/>
+                            <constraint firstItem="mag-GN-PyA" firstAttribute="centerX" secondItem="qEp-Tf-MGT" secondAttribute="centerX" id="uuc-uS-mr4"/>
+                            <constraint firstItem="mag-GN-PyA" firstAttribute="centerX" secondItem="vhM-bF-Ea1" secondAttribute="centerX" id="xrC-lN-0xC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="celsiusLabel" destination="vkz-Jn-uDP" id="n8W-Kr-urn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
