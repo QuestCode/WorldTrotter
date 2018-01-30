@@ -74,9 +74,15 @@
                     </view>
                     <connections>
                         <outlet property="celsiusLabel" destination="vkz-Jn-uDP" id="n8W-Kr-urn"/>
+                        <outlet property="textField" destination="cZZ-VA-wIy" id="b0h-vJ-iOJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="1aq-Us-5M6">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="BYZ-38-t0r" id="hHd-bO-40A"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>

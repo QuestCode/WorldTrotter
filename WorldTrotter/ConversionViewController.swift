@@ -11,6 +11,7 @@ import UIKit
 class ConversionViewController: UIViewController {
 
     @IBOutlet weak var celsiusLabel: UILabel!
+    @IBOutlet weak var textField: UITextField!
     
     @IBAction func fahrenheitFieldEditingChanged(_ sender: UITextField) {
         
@@ -20,6 +21,10 @@ class ConversionViewController: UIViewController {
         } else {
             celsiusLabel.text = "???"
         }
+    }
+    
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        textField.resignFirstResponder()
     }
     
     private func convertToCelsius(degrees: String) -> String {
