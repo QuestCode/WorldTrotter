@@ -37,7 +37,9 @@ class ConversionViewController: UIViewController {
     @IBAction func fahrenheitFieldEditingChanged(_ sender: UITextField) {
         
         if let text = sender.text, let value = Double(text) {
-            fahrenheitValue = Measurement(value: value, unit: .fahrenheit)
+            if !letterIsFound(input: text) {
+                fahrenheitValue = Measurement(value: value, unit: .fahrenheit)
+            }
         } else {
             fahrenheitValue = nil
         }
@@ -51,6 +53,18 @@ class ConversionViewController: UIViewController {
         }
     }
     
+    
+    private func letterIsFound(input: String) -> Bool {
+        let letters = NSCharacterSet.letters
+        
+        if let _ = input.rangeOfCharacter(from: letters) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    // Close keyboard
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         textField.resignFirstResponder()
     }
