@@ -113,6 +113,9 @@
                     <tabBarItem key="tabBarItem" title="Convert" image="ConvertIcon" id="kFR-Lm-zNx"/>
                     <connections>
                         <outlet property="celsiusLabel" destination="vkz-Jn-uDP" id="n8W-Kr-urn"/>
+                        <outlet property="degreeCLabel" destination="vhM-bF-Ea1" id="uoZ-J0-WYO"/>
+                        <outlet property="degreeFLabel" destination="Uzx-g7-1xk" id="BAQ-z9-n7q"/>
+                        <outlet property="isReallyLabel" destination="mag-GN-PyA" id="rhv-Om-bxI"/>
                         <outlet property="textField" destination="cZZ-VA-wIy" id="b0h-vJ-iOJ"/>
                     </connections>
                 </viewController>

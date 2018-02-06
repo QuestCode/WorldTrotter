@@ -10,6 +10,9 @@ import UIKit
 
 class ConversionViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var degreeFLabel: UILabel!
+    @IBOutlet weak var isReallyLabel: UILabel!
+    @IBOutlet weak var degreeCLabel: UILabel!
     @IBOutlet weak var celsiusLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
     
@@ -33,6 +36,45 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         nf.maximumFractionDigits = 1
         return nf
     }()
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let date = Date()
+        let calendar = Calendar.current
+        if calendar.component(.hour, from: date) >= 17 {
+            // orginal rgb(225,88,41)
+            view.backgroundColor = UIColor.black
+
+            
+            let ciColor = CIColor(color: celsiusLabel.textColor!)
+            let isReallyCIColor = CIColor(color: isReallyLabel.textColor!)
+            let textFieldCIColor = CIColor(color: UIColor(red: 199/256, green: 199/256, blue: 205/256, alpha: 1.0))
+            
+            let newRed = 1.0 - ciColor.red
+            let newGreen = 1.0 - ciColor.green
+            let newBlue = 1.0 - ciColor.blue
+            
+            let newIsReallyRed = 1.0 - isReallyCIColor.red
+            let newIsReallyGreen = 1.0 - isReallyCIColor.green
+            let newIsReallyBlue = 1.0 - isReallyCIColor.blue
+            
+            let newTextFieldRed = 1.0 - textFieldCIColor.red
+            let newTextFieldGreen = 1.0 - textFieldCIColor.green
+            let newTextFieldBlue = 1.0 - textFieldCIColor.blue
+            
+            celsiusLabel.textColor = UIColor(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
+            textField.textColor = UIColor(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
+            degreeFLabel.textColor = UIColor(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
+            degreeCLabel.textColor = UIColor(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
+            isReallyLabel.textColor = UIColor(red: newIsReallyRed, green: newIsReallyGreen, blue: newIsReallyBlue, alpha: 1.0)
+            textField.attributedPlaceholder = NSAttributedString(string: textField.placeholder!,
+                                                                 attributes: [NSAttributedStringKey.foregroundColor: UIColor(red: newTextFieldRed, green: newTextFieldGreen, blue: newTextFieldBlue, alpha: 1.0)])
+            
+        }
+        
+    }
     
     @IBAction func fahrenheitFieldEditingChanged(_ sender: UITextField) {
         
