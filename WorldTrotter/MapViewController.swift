@@ -26,7 +26,18 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         return btn
     }()
     
-    var locations = [CLLocationCoordinate2D(latitude: 33.9233641, longitude: -118.24517),CLLocationCoordinate2D(latitude: 33.880867, longitude: -117.886148),CLLocationCoordinate2D(latitude: 36.1032105, longitude: -115.1764464)]
+    let detailsButton: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle("Pin Details", for: .normal)
+        btn.isEnabled = false
+        btn.backgroundColor = UIColor(red: 87/256, green: 138/256, blue: 219/256, alpha: 1.0)
+        btn.layer.cornerRadius = 10
+        btn.layer.masksToBounds = true
+        return btn
+    }()
+    var selectedAnnotation: MKPointAnnotation?
+    var locations = [CLLocationCoordinate2D(latitude: 33.9233641, longitude: -118.24517),CLLocationCoordinate2D(latitude: 33.882396, longitude: -117.8830718),CLLocationCoordinate2D(latitude: 36.1032105, longitude: -115.1764464)]
     
     override func loadView() {
         super.loadView()
@@ -60,10 +71,24 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let buttonWidthConstraint = zoomInOnPostionButton.widthAnchor.constraint(equalToConstant: 80)
         let buttonHeightConstraint = zoomInOnPostionButton.heightAnchor.constraint(equalToConstant: 40)
         
+        view.addSubview(detailsButton)
+        detailsButton.addTarget(self, action: #selector(displayLocationOfAnnotation), for: .touchUpInside)
+        
+        let detailsButtonBottomConstraint = detailsButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+        let detailsButtonLeadingConstraint = detailsButton.leadingAnchor.constraint(equalTo: margins.leadingAnchor)
+        let detailsButtonWidthConstraint = detailsButton.widthAnchor.constraint(equalToConstant: 160)
+        let detailsButtonHeightConstraint = detailsButton.heightAnchor.constraint(equalToConstant: 40)
+        
         buttonBottomConstraint.isActive = true
         buttonLeadingConstraint.isActive = true
         buttonWidthConstraint.isActive = true
         buttonHeightConstraint.isActive = true
+        
+        detailsButtonBottomConstraint.isActive = true
+        detailsButtonLeadingConstraint.isActive = true
+        detailsButtonWidthConstraint.isActive = true
+        detailsButtonHeightConstraint.isActive = true
+        
         locationsOfInterest()
     }
     
@@ -93,7 +118,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     @objc func zoomInOnPostion(_ : UIButton) {
-        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
         let region = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: span)
         self.mapView.setRegion(region, animated: true)
     }
@@ -110,7 +135,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         let currentAnnotation = MKPointAnnotation()
         currentAnnotation.coordinate = currentLocation
-        currentAnnotation.title = "California State Fullerton"
+        currentAnnotation.title = "California State University, Fullerton"
         currentAnnotation.subtitle = "My current location"
         
         let eiffelAnnotation = MKPointAnnotation()
@@ -123,5 +148,27 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapView.addAnnotation(eiffelAnnotation)
     }
     
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        self.selectedAnnotation = view.annotation as? MKPointAnnotation
+        if self.selectedAnnotation != nil {
+            self.detailsButton.isEnabled = true
+        } else {
+            self.detailsButton.isEnabled = false
+        }
+    }
+    
+    @objc func displayLocationOfAnnotation() {
+        let coordinate = selectedAnnotation!.coordinate
+        createAlert(title: (selectedAnnotation?.title)!, message: "Latitude: \(String(describing: coordinate.latitude)) , Longitude: \(String(describing: coordinate.longitude))")
+    }
+    
+    func createAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
     
 }
