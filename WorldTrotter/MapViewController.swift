@@ -24,11 +24,14 @@ class MapViewController: UIViewController {
         segController.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         segController.selectedSegmentIndex = 0
         segController.translatesAutoresizingMaskIntoConstraints = false
+        segController.addTarget(self, action: #selector(setMapType(_:)), for: UIControlEvents.valueChanged)
         view.addSubview(segController)
         
-        let topConstraint = segController.topAnchor.constraint(equalTo: view.topAnchor)
-        let leadingConstraint = segController.leadingAnchor.constraint(equalTo: view.leadingAnchor)
-        let trailingConstraint = segController.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        let topConstraint = segController.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+        
+        let margins = view.layoutMarginsGuide
+        let leadingConstraint = segController.leadingAnchor.constraint(equalTo: margins.leadingAnchor)
+        let trailingConstraint = segController.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
         
         topConstraint.isActive = true
         leadingConstraint.isActive = true
@@ -45,16 +48,19 @@ class MapViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-}
-
-extension UIView {
-    func addContraintsWithFormat(format: String, views: UIView...) {
-        var viewsDictionary = [String:UIView]()
-        for (index,view) in views.enumerated() {
-            let key = "v\(index)"
-            viewsDictionary[key] = view
+    
+    
+    @objc func setMapType(_ segControl: UISegmentedControl) {
+        switch segControl.selectedSegmentIndex {
+        case 0:
+            mapView.mapType = .standard
+        case 1:
+            mapView.mapType = .hybrid
+        case 2:
+            mapView.mapType = .satellite
+        default:
+            break
         }
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary))
     }
+
 }

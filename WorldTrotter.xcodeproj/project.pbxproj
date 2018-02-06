@@ -16,6 +16,7 @@
 		21570C4B20210DCC000B11CA /* ConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21570C4A20210DCB000B11CA /* ConversionViewController.swift */; };
 		21570C4D20216561000B11CA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21570C4C20216561000B11CA /* MapViewController.swift */; };
 		21570C50202169A7000B11CA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21570C4F202169A7000B11CA /* MapKit.framework */; };
+		21CAC84620297264000ADC56 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CAC84520297264000ADC56 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		21570C4A20210DCB000B11CA /* ConversionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversionViewController.swift; sourceTree = "<group>"; };
 		21570C4C20216561000B11CA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		21570C4F202169A7000B11CA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		21CAC84520297264000ADC56 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21CAC84620297264000ADC56 /* WebKit.framework in Frameworks */,
 				21570C50202169A7000B11CA /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,6 +138,7 @@
 		21570C4E202169A6000B11CA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				21CAC84520297264000ADC56 /* WebKit.framework */,
 				21570C4F202169A7000B11CA /* MapKit.framework */,
 			);
 			name = Frameworks;

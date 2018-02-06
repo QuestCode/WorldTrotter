@@ -10,6 +10,7 @@ import UIKit
 
 class ConversionViewController: UIViewController, UITextFieldDelegate {
 
+    // MARK: - Properties -
     @IBOutlet weak var degreeFLabel: UILabel!
     @IBOutlet weak var isReallyLabel: UILabel!
     @IBOutlet weak var degreeCLabel: UILabel!
@@ -76,6 +77,8 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    // MARK: - Class Functions -
+    
     @IBAction func fahrenheitFieldEditingChanged(_ sender: UITextField) {
         
         if let text = sender.text, let value = Double(text) {
@@ -115,6 +118,8 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         let celsius = (Double(degrees)! - 32) * (5/9)
         return String(format: "%.2f",celsius)
     }
+    
+    // MARK: - Delegate Functions -
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
