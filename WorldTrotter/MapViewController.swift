@@ -26,6 +26,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         return btn
     }()
     
+    var locations = [CLLocationCoordinate2D(latitude: 33.9233641, longitude: -118.24517),CLLocationCoordinate2D(latitude: 33.880867, longitude: -117.886148),CLLocationCoordinate2D(latitude: 36.1032105, longitude: -115.1764464)]
+    
     override func loadView() {
         super.loadView()
         view = mapView
@@ -62,7 +64,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         buttonLeadingConstraint.isActive = true
         buttonWidthConstraint.isActive = true
         buttonHeightConstraint.isActive = true
-        
+        locationsOfInterest()
     }
     
 
@@ -94,6 +96,31 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         let region = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: span)
         self.mapView.setRegion(region, animated: true)
+    }
+    
+    func locationsOfInterest() {
+        let birthLocation = locations[0]
+        let currentLocation = locations[1]
+        let interestLocation = locations[2]
+        
+        let birthAnnotation = MKPointAnnotation()
+        birthAnnotation.coordinate = birthLocation
+        birthAnnotation.title = "Martin Luther King Hospital"
+        birthAnnotation.subtitle = "Birthplace of Devontae Reid"
+        
+        let currentAnnotation = MKPointAnnotation()
+        currentAnnotation.coordinate = currentLocation
+        currentAnnotation.title = "California State Fullerton"
+        currentAnnotation.subtitle = "My current location"
+        
+        let eiffelAnnotation = MKPointAnnotation()
+        eiffelAnnotation.coordinate = interestLocation
+        eiffelAnnotation.title = "ARIA Resort & Casino Las Vegas"
+        eiffelAnnotation.subtitle = "Interesting Place I visited!"
+        
+        mapView.addAnnotation(birthAnnotation)
+        mapView.addAnnotation(currentAnnotation)
+        mapView.addAnnotation(eiffelAnnotation)
     }
     
     
