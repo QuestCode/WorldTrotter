@@ -76,12 +76,20 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
-       let countdots = (textField.text?.components(separatedBy: ".").count)!-1
         
-        if countdots > 0 && string == "." {
+        if letterIsFound(input: string) {
             return false
+        } else {
+            let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
+            let replacementTextHasDecimalSeparator = string.range(of: ".")
+            
+            if existingTextHasDecimalSeparator != nil,
+                replacementTextHasDecimalSeparator != nil {
+                return false
+            } else {
+                return true
+            }
         }
-        return true
     }
     
 }
