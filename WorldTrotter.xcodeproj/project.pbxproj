@@ -18,6 +18,7 @@
 		21570C50202169A7000B11CA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21570C4F202169A7000B11CA /* MapKit.framework */; };
 		21CAC84620297264000ADC56 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CAC84520297264000ADC56 /* WebKit.framework */; };
 		21CAC848202972C8000ADC56 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CAC847202972C8000ADC56 /* WebViewController.swift */; };
+		21CAC84E202C1F65000ADC56 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21CAC84D202C1F65000ADC56 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,12 @@
 		21570C4F202169A7000B11CA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		21CAC84520297264000ADC56 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		21CAC847202972C8000ADC56 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		21CAC84A202C1693000ADC56 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		21CAC84B202C16E2000ADC56 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		21CAC84C202C16E2000ADC56 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		21CAC84D202C1F65000ADC56 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		21CAC84F202C20DA000ADC56 /* sw */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sw; path = sw.lproj/Main.strings; sourceTree = "<group>"; };
+		21CAC850202C20DA000ADC56 /* sw */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sw; path = sw.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +115,7 @@
 		21570C1B20210DB2000B11CA /* WorldTrotter */ = {
 			isa = PBXGroup;
 			children = (
+				21CAC84D202C1F65000ADC56 /* Localizable.strings */,
 				21570C1C20210DB2000B11CA /* AppDelegate.swift */,
 				21570C4A20210DCB000B11CA /* ConversionViewController.swift */,
 				21CAC847202972C8000ADC56 /* WebViewController.swift */,
@@ -255,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21570C2720210DB2000B11CA /* LaunchScreen.storyboard in Resources */,
+				21CAC84E202C1F65000ADC56 /* Localizable.strings in Resources */,
 				21570C2420210DB2000B11CA /* Assets.xcassets in Resources */,
 				21570C2220210DB2000B11CA /* Main.storyboard in Resources */,
 			);
@@ -324,6 +333,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				21570C2120210DB2000B11CA /* Base */,
+				21CAC84A202C1693000ADC56 /* en */,
+				21CAC84B202C16E2000ADC56 /* es */,
+				21CAC84F202C20DA000ADC56 /* sw */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -332,6 +344,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				21570C2620210DB2000B11CA /* Base */,
+				21CAC84C202C16E2000ADC56 /* es */,
+				21CAC850202C20DA000ADC56 /* sw */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -343,6 +357,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -400,6 +415,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

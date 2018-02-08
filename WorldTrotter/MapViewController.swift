@@ -19,7 +19,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     let zoomInOnPostionButton: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle("Zoom", for: .normal)
+        let zoom = NSLocalizedString("Zoom", comment: "Zoom Button Title")
+        btn.setTitle(zoom, for: .normal)
         btn.backgroundColor = UIColor(red: 87/256, green: 138/256, blue: 219/256, alpha: 1.0)
         btn.layer.cornerRadius = 10
         btn.layer.masksToBounds = true
@@ -29,7 +30,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     let detailsButton: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle("Pin Details", for: .normal)
+        let pinDetails = NSLocalizedString("Pin Details", comment: "Pin Details Button Title")
+        btn.setTitle(pinDetails, for: .normal)
         btn.isEnabled = false
         btn.backgroundColor = UIColor(red: 87/256, green: 138/256, blue: 219/256, alpha: 1.0)
         btn.layer.cornerRadius = 10
@@ -45,7 +47,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapView.delegate = self
         mapView.showsUserLocation = true
         
-        let segController = UISegmentedControl(items: ["Standard","Hybrid","Satelite"])
+        let standard = NSLocalizedString("Standard", comment: "Standard Map View")
+        let hybrid = NSLocalizedString("Hybrid", comment: "Hybrid Map View")
+        let satelite = NSLocalizedString("Satelite", comment: "Satelite Map View")
+        
+        let segController = UISegmentedControl(items: [standard,hybrid,satelite])
         segController.tintColor = UIColor(red: 87/256, green: 138/256, blue: 219/256, alpha: 1.0)
         segController.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         segController.selectedSegmentIndex = 0
@@ -128,24 +134,33 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let currentLocation = locations[1]
         let interestLocation = locations[2]
         
+        let birthplaceTitleString = NSLocalizedString("Martin Luther King Hospital", comment: "Birthplace Title String For Annotation")
+        let birthplaceSubtitleString = NSLocalizedString("Birthplace of Devontae Reid", comment: "Birthplace Subtitle String For Annotation")
+        
         let birthAnnotation = MKPointAnnotation()
         birthAnnotation.coordinate = birthLocation
-        birthAnnotation.title = "Martin Luther King Hospital"
-        birthAnnotation.subtitle = "Birthplace of Devontae Reid"
+        birthAnnotation.title = birthplaceTitleString
+        birthAnnotation.subtitle = birthplaceSubtitleString
+        
+        let currentLocationTitleString = NSLocalizedString("California State University, Fullerton", comment: "Current Location Title String For Annotation")
+        let currentLocationSubtitleString = NSLocalizedString("My current location", comment: "Current Location Subtitle String For Annotation")
         
         let currentAnnotation = MKPointAnnotation()
         currentAnnotation.coordinate = currentLocation
-        currentAnnotation.title = "California State University, Fullerton"
-        currentAnnotation.subtitle = "My current location"
+        currentAnnotation.title = currentLocationTitleString
+        currentAnnotation.subtitle = currentLocationSubtitleString
         
-        let eiffelAnnotation = MKPointAnnotation()
-        eiffelAnnotation.coordinate = interestLocation
-        eiffelAnnotation.title = "ARIA Resort & Casino Las Vegas"
-        eiffelAnnotation.subtitle = "Interesting Place I visited!"
+        let favoritePlaceTitleString = NSLocalizedString("ARIA Resort & Casino Las Vegas", comment: "Favorite Location Title String For Annotation")
+        let favoritePlaceSubtitleString = NSLocalizedString("Interesting Place I visited!", comment: "Current Location Subtitle String For Annotation")
+        
+        let favoritePlaceAnnotation = MKPointAnnotation()
+        favoritePlaceAnnotation.coordinate = interestLocation
+        favoritePlaceAnnotation.title = favoritePlaceTitleString
+        favoritePlaceAnnotation.subtitle = favoritePlaceSubtitleString
         
         mapView.addAnnotation(birthAnnotation)
         mapView.addAnnotation(currentAnnotation)
-        mapView.addAnnotation(eiffelAnnotation)
+        mapView.addAnnotation(favoritePlaceAnnotation)
     }
     
     
