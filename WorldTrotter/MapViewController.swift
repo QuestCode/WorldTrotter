@@ -124,8 +124,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     @objc func zoomInOnPostion(_ : UIButton) {
+        let currentLocation = locations[1]
         let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
-        let region = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: span)
+        let region = MKCoordinateRegion(center: currentLocation, span: span)
         self.mapView.setRegion(region, animated: true)
     }
     

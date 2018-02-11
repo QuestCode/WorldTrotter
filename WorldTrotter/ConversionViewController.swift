@@ -114,11 +114,6 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
     }
     
-    private func convertToCelsius(degrees: String) -> String {
-        let celsius = (Double(degrees)! - 32) * (5/9)
-        return String(format: "%.2f",celsius)
-    }
-    
     // MARK: - Delegate Functions -
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,

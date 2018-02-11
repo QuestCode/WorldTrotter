@@ -39,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		21198F692030C96200D42CB6 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		21198F6A2030C96200D42CB6 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		21570C1920210DB2000B11CA /* WorldTrotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldTrotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21570C1C20210DB2000B11CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21570C2120210DB2000B11CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -60,8 +62,6 @@
 		21CAC84B202C16E2000ADC56 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		21CAC84C202C16E2000ADC56 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		21CAC84D202C1F65000ADC56 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		21CAC84F202C20DA000ADC56 /* sw */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sw; path = sw.lproj/Main.strings; sourceTree = "<group>"; };
-		21CAC850202C20DA000ADC56 /* sw */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sw; path = sw.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,7 +335,7 @@
 				21570C2120210DB2000B11CA /* Base */,
 				21CAC84A202C1693000ADC56 /* en */,
 				21CAC84B202C16E2000ADC56 /* es */,
-				21CAC84F202C20DA000ADC56 /* sw */,
+				21198F692030C96200D42CB6 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -345,7 +345,7 @@
 			children = (
 				21570C2620210DB2000B11CA /* Base */,
 				21CAC84C202C16E2000ADC56 /* es */,
-				21CAC850202C20DA000ADC56 /* sw */,
+				21198F6A2030C96200D42CB6 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
